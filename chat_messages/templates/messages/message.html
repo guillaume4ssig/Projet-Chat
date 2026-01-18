@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Envoyer Message</title>
-</head>
-<body>
+<p>
+    Connecté en tant que {{ request.user.username }}
+    | <a href="{% url 'logout' %}">Logout</a>
+</p>
 
-<h2>Message</h2>
+<hr>
+
+{% for msg in msgs %}
+    <p>
+        <strong>{{ msg.sender.username }}</strong> :
+        {{ msg.content }}
+    </p>
+{% endfor %}
 
 <form method="post">
     {% csrf_token %}
-    <textarea name="content" rows="4" cols="50" placeholder="Écris ton message ici..."></textarea>
-    <br>
+    <input type="text" name="content" required>
     <button type="submit">Envoyer</button>
 </form>
-<h3>Messages envoyés :</h3>
-<ul>
-    {% for m in msgs %}
-        <li>{{ m.sender }} ({{ m.date }}): {{ m.content }}</li>
-    {% empty %}
-        <li>Aucun message pour l'instant.</li>
-    {% endfor %}
-</ul>
-</body>
-</html>

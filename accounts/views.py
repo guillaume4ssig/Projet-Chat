@@ -9,6 +9,8 @@ def signup(request):
             user = form.save()
             login(request, user)  
             return redirect('/')  
+        else:
+            print(form.errors)
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
