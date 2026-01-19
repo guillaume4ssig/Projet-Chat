@@ -1,0 +1,113 @@
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Style général */
+body {
+    background: #f4f6f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Titres */
+h1, h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Liens */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Conteneur central */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Formulaires */
+form {
+    margin-top: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Boutons */
+button {
+    background: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Liste des salons */
+ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+ul li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Messages du chat */
+.chat-box {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.chat-box p {
+    margin-bottom: 10px;
+}
+
+.chat-box strong {
+    color: #2c3e50;
+}
+
+.chat-box small {
+    color: #7f8c8d;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* Barre séparation */
+hr {
+    margin: 15px 0;
+}
