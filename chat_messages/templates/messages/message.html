@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Discussion</title>
-    <script src="{% static 'static/main.js' %}"></script>
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
-<h2>Salon : {{ salon.name }}</h2>
-<hr>
-<a href="{% url 'salon_list' %}">retour à la liste des salons</a>
-<div>
-    {% for msg in msgs%}
-        <p>
-            <strong>{{ msg.sender.username }}</strong> :
-            {{ msg.content }}
-            <small>{{ msg.date }}</small>
-        </p>
-    {% endfor %}
+<div class="container mt-5">
+    <h2>Salon : {{ salon.name }}</h2>
+    <hr>
+    <a href="{% url 'salon_list' %}">Retour à la liste des salons</a>
+    <div class="chat-box" id="chat-box" data-salon-id="{{ salon.id }}">
+        <script src="{% static 'main.js' %}"></script>
+        {% for msg in msgs%}
+            <p>
+                <strong>{{ msg.sender.username }}</strong> : {{ msg.content }}
+                <small>{{ msg.date }}</small>
+            </p>
+        {% endfor %}
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button type="submit" style="font-size: 1em;">Envoyer</button>
+    </form>
 </div>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.media }}
-
-    {{ form.as_p }}
-    <button type="submit">Envoyer</button>
-</form>
 </body>
 </html>

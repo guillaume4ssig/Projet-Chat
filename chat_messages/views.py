@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Message
-from django.http import HttpResponse
-from django.template import Template
+from .models import Message, Salon
+from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import MessageForm
-from .models import Salon
 
 @login_required
-def message(request,salon_id):
+def message(request, salon_id):
     salon = Salon.objects.get(id=salon_id)
     if request.method == 'POST':
 
@@ -18,16 +16,32 @@ def message(request,salon_id):
             msg.sender = request.user
             msg.salon = salon
             msg.save()
-            return redirect('salon_messages',salon_id=salon_id)
+            return redirect('salon_messages', salon_id=salon_id)
     else:
         form = MessageForm()
 
     msgs = salon.messages.order_by('date')
     return render(request, "messages/message.html", {
-        "salon":salon,
+        "salon": salon,
         "msgs": msgs,
         "form": form
     })
+
+@login_required
+def get_messages_json(request, salon_id):
+    """Renvoie tous les messages d’un salon en JSON pour le chat live"""
+    salon = Salon.objects.get(id=salon_id)
+    messages = salon.messages.order_by('date')
+    data = [
+        {
+            'sender': msg.sender.username,
+            'content': msg.content,
+            'date': msg.date.strftime("%Y-%m-%d %H:%M")
+        }
+        for msg in messages
+    ]
+    return JsonResponse({'messages': data})
+
 
 
 def create_salon(request):
