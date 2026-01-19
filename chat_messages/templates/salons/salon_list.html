@@ -1,0 +1,14 @@
+<h1>Liste des salons</h1>
+
+
+<a href="{% url 'create_salon' %}">Créer un salon</a>
+
+<ul>
+    {% for salon in salons %}
+        <li>
+            <a href="{% url 'salon_messages' salon.id %}">
+                {{ salon.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

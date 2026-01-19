@@ -3,13 +3,31 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Salon(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Message(models.Model):
-    sender = models.ForeignKey(User,on_delete=models.CASCADE,related_name='messages')
+    salon = models.ForeignKey(
+        Salon,
+        on_delete=models.CASCADE,
+        related_name='messages'
+    )
+    sender = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='messages'
+    )
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
-    def envoie(self):
-        return f"Message from {self.sender} at {self.date}: {self.content}"
+    def __str__(self):
+        return f"{self.sender} : {self.content[:20]}"
+
     
     
 

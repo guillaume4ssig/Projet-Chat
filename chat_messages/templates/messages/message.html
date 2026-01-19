@@ -1,21 +1,22 @@
-{% load static %}
-<p>
-    Connecté en tant que {{ request.user.username }}
-    | <a href="{% url 'login' %}">Logout</a>
-</p>
-
+<h2>Salon : {{ salon.name }}</h2>
 <hr>
 
-{% for msg in msgs %}
-    <p>
-        <strong>{{ msg.sender.username }}</strong> :
-        {{ msg.content }}
-    </p>
-{% endfor %}
+<a href="{% url 'salon_list' %}">retour à la liste des salons</a>
 
-<form method="post">
+<div>
+    {% for msg in msgs%}
+        <p>
+            <strong>{{ msg.sender.username }}</strong> :
+            {{ msg.content }}
+            <small>{{ msg.date }}</small>
+        </p>
+    {% endfor %}
+</div>
+
+<form method="POST">
     {% csrf_token %}
-    {{ form.media }}   
+    {{ form.media }}
+
     {{ form.as_p }}
     <button type="submit">Envoyer</button>
 </form>
