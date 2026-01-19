@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <script src="{% static 'main.js' %}"></script>
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
 <div class="container mt-5">
+    <h1>Site de chat</h1>
     <h2>Connexion</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Se connecter</button>
+        <button type="submit" class="btn btn-primary" style="font-size: 1em;">Se connecter</button>
     </form>
 
     <hr>
