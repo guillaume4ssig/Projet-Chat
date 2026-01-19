@@ -1,8 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion</title>
+    <script src="{% static 'static/main.js' %}"></script>
+</head>
+<body>
 <h2>Salon : {{ salon.name }}</h2>
 <hr>
-
 <a href="{% url 'salon_list' %}">retour à la liste des salons</a>
-
 <div>
     {% for msg in msgs%}
         <p>
@@ -12,7 +19,6 @@
         </p>
     {% endfor %}
 </div>
-
 <form method="POST">
     {% csrf_token %}
     {{ form.media }}
@@ -20,3 +26,5 @@
     {{ form.as_p }}
     <button type="submit">Envoyer</button>
 </form>
+</body>
+</html>

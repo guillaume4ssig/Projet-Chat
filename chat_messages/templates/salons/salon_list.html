@@ -1,8 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des salons</title>
+    <script src="{% static 'static/main.js' %}"></script>
+</head>
+<body>
 <h1>Liste des salons</h1>
-
-
 <a href="{% url 'create_salon' %}">Créer un salon</a>
-
 <ul>
     {% for salon in salons %}
         <li>
@@ -12,3 +18,5 @@
         </li>
     {% endfor %}
 </ul>
+</body>
+</html>
