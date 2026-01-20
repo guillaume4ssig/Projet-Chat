@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 @login_required
 def message(request, salon_id):
     salon = Salon.objects.get(id=salon_id)
+    salon.members.add(request.user)
     if request.method == 'POST':
 
         form = MessageForm(request.POST)
@@ -49,7 +50,7 @@ def get_messages_json(request, salon_id):
 def create_salon(request):
     if request.method == "POST":
         name = request.POST.get("name")
-        Salon.objects.create(name=name,admin=request.user)
+        salon = Salon.objects.create(name=name,admin=request.user)
         return redirect("salon_list")
 
     return render(request, "salons/create_salon.html")
@@ -71,5 +72,11 @@ def delete_salon(request, salon_id):
 def salon_list(request):
     salons = Salon.objects.all()
     return render(request, "salons/salon_list.html", {"salons": salons})
+
+@login_required
+def join_salon(request, salon_id):
+    salon = get_object_or_404(Salon, id=salon_id)
+    salon.members.add(request.user)
+    return redirect("salon_messages", salon_id=salon.id)
 
 

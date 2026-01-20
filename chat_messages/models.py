@@ -7,6 +7,7 @@ class Salon(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE,default=None)
+    members = models.ManyToManyField(User, related_name="salons")
 
     
     def __str__(self):

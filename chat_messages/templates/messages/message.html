@@ -7,6 +7,15 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
+<h3>Admin :</h3>
+<p>{{ salon.admin.username }}</p>
+
+<h3>Membres :</h3>
+{% for person in salon.members.all %}
+    <p>{{ person.username }}</p>
+{% endfor %}
+
+
     <div id="logout">
         <p> Connecter en tant que {{ user.username }} </p>
         <a href="{% url 'login' %}">Se déconnecter</a>
@@ -14,12 +23,13 @@
 <div class="container mt-5">
     <h2>Salon : {{ salon.name }}</h2>
     <hr>
-    {% if salon.user_role == 'adm' %}
+    {% if salon.admin == user %}
     <form method="POST" action="{% url 'delete_salon' salon.id %}">
         {% csrf_token %}
         <button type="submit" style="font-size: 1em;">Supprimer le salon</button>
     </form>
     {% endif %}
+    
     <a href="{% url 'salon_list' %}">Retour à la liste des salons</a>
     <div class="chat-box" id="chat-box" data-salon-id="{{ salon.id }}">
         <script src="{% static 'main.js' %}"></script>
