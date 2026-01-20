@@ -1,5 +1,5 @@
 /*Reset*/
-*{
+.app *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,13 +14,13 @@ body {
 }
 
 /*Titre*/
-h1, h2, h3 {
+.app h1,.app h2,.app h3 {
     margin-bottom: 15px;
     color: #2c3e50;
 }
 
 /*Conteneur central*/
-.container {
+.app .container {
     position: relative;
     max-width: 1000px;
     margin: auto;
@@ -31,17 +31,17 @@ h1, h2, h3 {
 }
 
 /*Liens*/
-a{
+.app a{
     color: #3498db;
     text-decoration: none;
 }
 
-a:hover{
+.app a:hover{
     text-decoration: underline;
 }
 
 /*Bouton*/
-button.button, a.button {
+.app button.button, a.button {
     font-size: 1em;
     line-height: 1.2;
     padding: 10px 15px;
@@ -54,7 +54,7 @@ button.button, a.button {
     text-decoration: none;
 }
 
-button.button:hover, a.button:hover {
+.app button.button:hover, a.button:hover {
     background: #2980b9;
 }
 
@@ -70,13 +70,13 @@ button.button:hover, a.button:hover {
 }
 
 /*Liste salon*/
-ul{
+.app ul{
     list-style: none;
     margin-top: 20px;
     text-align: center;
 }
 
-ul li{
+.app ul li{
     display: inline-block;
     width: 280px;
     padding: 15px;
@@ -88,7 +88,7 @@ ul li{
     transition: transform 0.2s ease;
 }
 
-ul li:hover{
+.app ul li:hover{
     transform: translateY(-4px);
 }
 

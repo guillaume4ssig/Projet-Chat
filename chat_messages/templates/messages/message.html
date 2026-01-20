@@ -7,6 +7,7 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
+    <div class="app">
 <div id="logout">
     <p> Connecter en tant que {{ user.username }} </p>
     <a href="{% url 'login' %}">Se déconnecter</a>
@@ -52,6 +53,7 @@
         {{ form.as_p }}
         <button type="submit" class="button">Envoyer</button>
     </form>
+</div>
 </div>
 </body>
 </html>
