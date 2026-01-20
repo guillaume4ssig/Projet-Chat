@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Message, Salon
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import MessageForm
 from django.shortcuts import get_object_or_404
+
 
 @login_required
 def message(request, salon_id):
@@ -48,7 +49,7 @@ def get_messages_json(request, salon_id):
 def create_salon(request):
     if request.method == "POST":
         name = request.POST.get("name")
-        Salon.objects.create(name=name,user_role ='adm')
+        Salon.objects.create(name=name,admin=request.user)
         return redirect("salon_list")
 
     return render(request, "salons/create_salon.html")
@@ -58,6 +59,8 @@ def delete_salon(request, salon_id):
     salon = get_object_or_404(Salon, id=salon_id)
 
     if request.method == "POST":
+        if salon.admin != request.user:
+            return redirect('salon_messages',salon_id=salon_id)
         salon.delete()
         return redirect("salon_list")
 

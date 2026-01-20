@@ -4,8 +4,7 @@ Ce projet constitue un site de chat avec
 - l'aspect client : Rendu dynamique des pages, rafraichissement de la fenêtre de chat
 
 ## Liste de tâches
-- rendre joli la ou on tape les messages en css
-- administration salon
-- supprimer salon, pouvoir annuler quand on crée un salon
-- bouton déconnexion
+- rendre plus joli
+- liste gens salon
+- administration salon qui peut supprimer qqun et supprimer msg
 - que le | pour taper soit là direct
