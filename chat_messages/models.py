@@ -6,7 +6,11 @@ from django.contrib.auth.models import User
 class Salon(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    role_list =   {
+         ('adm', 'admin'),
+         ('mem','membre')}
+    user_role = models.CharField(max_length=50,choices=role_list,null=True)
+    
     def __str__(self):
         return self.name
 
@@ -29,6 +33,10 @@ class Message(models.Model):
         return f"{self.sender} : {self.content[:20]}"
 
     
+
+
+
+
     
 
     

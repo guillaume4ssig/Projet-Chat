@@ -10,6 +10,12 @@
 <div class="container mt-5">
     <h2>Liste des salons</h2>
     <a href="{% url 'create_salon' %}">Créer un salon</a>
+    
+    <div id="logout">
+        <p> Connecter en tant que {{ user.username }} </p>
+        <a href="{% url 'login' %}">Se déconnecter</a>
+    </div>
+    
     <ul>
         {% for salon in salons %}
             <li>

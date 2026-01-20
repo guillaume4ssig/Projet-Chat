@@ -7,10 +7,25 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
+    
 <div class="container mt-5">
     <h2>Salon : {{ salon.name }}</h2>
     <hr>
+    <form method="POST" action="{% url 'delete_salon' salon.id %}">
+    {% csrf_token %}
+    <button type="submit">
+        Supprimer le salon
+    </button>
+</form>
+    <div id="logout">
+        <p> Connecter en tant que {{ user.username }} </p>
+        <a href="{% url 'login' %}">Se déconnecter</a>
+    </div>
+
+
     <a href="{% url 'salon_list' %}">Retour à la liste des salons</a>
+    <hr>
+
     <div class="chat-box" id="chat-box" data-salon-id="{{ salon.id }}">
         <script src="{% static 'main.js' %}"></script>
         {% for msg in msgs%}

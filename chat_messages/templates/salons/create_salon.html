@@ -7,6 +7,10 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
+    <div id="logout">
+        <p> Connecter en tant que {{ user.username }} </p>
+        <a href="{% url 'login' %}">Se déconnecter</a>
+    </div>
 <div class="container mt-5">
     <h2>Créer un salon</h2>
     <form method="POST">
