@@ -7,31 +7,37 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
-<h3>Admin :</h3>
-<p>{{ salon.admin.username }}</p>
-
-<h3>Membres :</h3>
-{% for person in salon.members.all %}
-    <p>{{ person.username }}</p>
-{% endfor %}
-
-
-    <div id="logout">
-        <p> Connecter en tant que {{ user.username }} </p>
-        <a href="{% url 'login' %}">Se déconnecter</a>
-    </div>
+<div id="logout">
+    <p> Connecter en tant que {{ user.username }} </p>
+    <a href="{% url 'login' %}">Se déconnecter</a>
+</div>
 <div class="container mt-5">
     <h2>Salon : {{ salon.name }}</h2>
     <hr>
+    <div id="membre_chat">
+        <div id="parti_admin">
+            <h3>Admin :</h3>
+            <p>{{ salon.admin.username }}</p>
+        </div>
+
+        <h3>Membres :</h3>
+        {% for person in salon.members.all %}
+            <p>{{ person.username }}</p>
+        {% endfor %}
+    </div>
+
+<div class="bouton_salon">
+    <a href="{% url 'salon_list' %}" class="button">Retour à la liste des salons</a>
+
     {% if salon.admin == user %}
     <form method="POST" action="{% url 'delete_salon' salon.id %}">
         {% csrf_token %}
-        <button type="submit" style="font-size: 1em;">Supprimer le salon</button>
+        <button type="submit" class="button">Supprimer le salon</button>
     </form>
     {% endif %}
-    
-    <a href="{% url 'salon_list' %}">Retour à la liste des salons</a>
-    <div class="chat-box" id="chat-box" data-salon-id="{{ salon.id }}">
+</div>
+
+    <div class="chat_box" id="chat_box" data-salon-id="{{ salon.id }}">
         <script src="{% static 'main.js' %}"></script>
         {% for msg in msgs%}
             <p>
@@ -44,7 +50,7 @@
         {% csrf_token %}
         {{ form.media }}
         {{ form.as_p }}
-        <button type="submit" style="font-size: 1em;">Envoyer</button>
+        <button type="submit" class="button">Envoyer</button>
     </form>
 </div>
 </body>

@@ -13,10 +13,12 @@
     </div>
 <div class="container mt-5">
     <h2>Créer un salon</h2>
+    <a href="{% url 'salon_list' %}" class="button">Retour à la liste des salons</a>
+    <hr>
     <form method="POST">
         {% csrf_token %}
         <input type="text" name="name" placeholder="Nom du salon" required class="form-input">
-        <button type="submit" style="font-size: 1em;">Créer</button>
+        <button type="submit" style="font-size: 1em;" class="button">Créer</button>
     </form>
 </div>
 </body>
