@@ -7,15 +7,19 @@
     <link href="{% static 'style.css' %}" rel="stylesheet" />
 </head>
 <body>
-<div class="container mt-5">
-    <h2>Créer un compte</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" style="font-size: 1em;">S'inscrire</button>
-    </form>
-    <hr>
-    <p>Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a></p>
-</div>
+    <div class="app">
+        <div class="container mt-5">
+            <h2>Créer un compte</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" style="font-size: 1em;" class="button">S'inscrire</button>
+            </form>
+            <br>  
+            <hr>
+            <br>    
+            <p> Déjà un compte ? <a href="{% url 'login' %}" class="button">Se connecter</a></p>
+        </div>
+    </div>
 </body>
 </html>
