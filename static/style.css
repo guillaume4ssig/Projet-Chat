@@ -122,7 +122,7 @@ body {
 }
 
 .chat_box small{
-    color: #7f8c8d;
+    color: black;
     font-size: 0.8em;
     margin-left: 5px;
 }
@@ -175,3 +175,41 @@ hr{
     display: inline-block;
     vertical-align: middle;
 }
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 60%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+
+.my-message {
+    align-self: flex-end;
+    background-color: #63afe1;
+    color: white;
+    border-bottom-right-radius: 0;
+}
+
+
+.other-message {
+    align-self: flex-start;
+    background-color: #e5e5e5;
+    color: black;
+    border-bottom-left-radius: 0;
+}
+
+.message-meta {
+    display: block;
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 4px;
+    color: blue;
+}
+

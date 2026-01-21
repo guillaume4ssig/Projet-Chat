@@ -10,9 +10,8 @@ from django.shortcuts import get_object_or_404
 @login_required
 def message(request, salon_id):
     salon = Salon.objects.get(id=salon_id)
-    salon.members.add(request.user)
     if request.method == 'POST':
-
+        
         form = MessageForm(request.POST)
         if form.is_valid():
             msg = form.save(commit=False)
@@ -76,7 +75,8 @@ def salon_list(request):
 @login_required
 def join_salon(request, salon_id):
     salon = get_object_or_404(Salon, id=salon_id)
-    salon.members.add(request.user)
+    if request.user != salon.admin:
+        salon.members.add(request.user)
     return redirect("salon_messages", salon_id=salon.id)
 
 

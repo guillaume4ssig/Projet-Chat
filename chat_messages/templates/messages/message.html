@@ -40,13 +40,24 @@
     
 
     <div class="chat_box" id="chat_box" data-salon-id="{{ salon.id }}">
-        <script src="{% static 'main.js' %}"></script>
-        {% for msg in msgs%}
-            <p>
-                <strong>{{ msg.sender.username }}</strong> : {{ msg.content }}
-                <small>{{ msg.date }}</small>
-            </p>
-        {% endfor %}
+        
+        <div class="chat-container">
+    {% for msg in msgs %}
+        <div class="message 
+            {% if msg.sender == request.user %}
+                my-message
+            {% else %}
+                other-message
+            {% endif %}">
+            <div class="message-content">
+                {{ msg.content }}
+            </div>
+            <small class="message-meta">
+                {{ msg.sender.username }} • {{ msg.date|date:"H:i" }}
+            </small>
+        </div>
+    {% endfor %}
+</div>
     </div>
     <form method="POST">
         {% csrf_token %}
@@ -56,5 +67,6 @@
     </form>
 </div>
 </div>
+<script src="{% static 'main.js' %}"></script>
 </body>
 </html>
