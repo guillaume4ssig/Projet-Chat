@@ -102,12 +102,15 @@ body {
 /*Chat box*/
 .chat_box{
     background: white;
-    height :700px;
+    height :660px;
+    width:730px;
     padding: 15px;
     border-radius: 8px;
     max-height: 400px;
     overflow-y: auto;
     margin-bottom: 15px;
+    border: 1px solid #7f8c8d;
+
 }
 
 .chat_box p{
@@ -145,8 +148,8 @@ hr{
     float: right;
     width: 220px;
     max-height: 400px;
-    margin-top: 20px;
-    padding: 15px;
+    margin-left: 0px;
+    padding: 10px;
     background: #f4f6f9;
     border-radius: 8px;
     border: 1px solid grey;
