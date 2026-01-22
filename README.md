@@ -80,11 +80,13 @@ Serveur de développment
 python manage.py runserver
 ```
 
-Pour un serveur, compléter dans le fichier settings.py
+Pour un serveur, compléter dans le fichier `settings.py`
 
 ```bash
 ALLOWED_HOSTS = ["nom_de_domaine_ou_ip_du_serveur"]
 ```
+
+Penser à stocker dans une variable d’environnement la `SECRET_KEY`, enlever le debug…
 
 ## Fonctionnalités principales
 
