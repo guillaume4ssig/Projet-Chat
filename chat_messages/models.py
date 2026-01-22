@@ -8,6 +8,12 @@ class Salon(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE,default=None)
     members = models.ManyToManyField(User, related_name="salons")
+    banned_users = models.ManyToManyField(User,related_name="banned_from_salons",blank=True)
+
+    class Meta:
+        permissions = [
+            ("exclude_member", "Peut exclure un membre du salon"),
+        ]
 
     
     def __str__(self):

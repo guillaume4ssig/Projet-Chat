@@ -213,3 +213,10 @@ hr{
     color: blue;
 }
 
+.alert-error {
+    background: #ffdddd;
+    color: #a00;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}

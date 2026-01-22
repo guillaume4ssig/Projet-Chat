@@ -24,6 +24,12 @@
         <h3>Membres :</h3>
         {% for person in salon.members.all %}
             <p>{{ person.username }}</p>
+             {% if salon.admin == user %}
+            <a href="{% url 'exclude_member' salon.id person.id %}"
+               style="color:red; margin-left:10px;">
+               Exclure
+            </a>
+        {% endif %}
         {% endfor %}
     </div>
 
