@@ -8,3 +8,4 @@ Ce projet constitue un site de chat avec
 - liste gens salon
 - administration salon qui peut supprimer qqun et supprimer msg
 - que le | pour taper soit là direct
+- nos msg à droite les autre à gauche
