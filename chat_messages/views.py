@@ -47,9 +47,10 @@ def get_messages_json(request, salon_id):
     messages = salon.messages.order_by('date')
     data = [
         {
+            'id': msg.id,
             'sender': msg.sender.username,
             'content': msg.content,
-            'date': msg.date.strftime("%Y-%m-%d %H:%M")
+            'date': msg.date.strftime("%H:%M")
         }
         for msg in messages
     ]
