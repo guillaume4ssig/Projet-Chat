@@ -99,6 +99,15 @@ body {
     box-shadow: 0 4px 10px rgb(125,125,125);    
 }
 
+.salon-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit; /* garde la couleur du texte */
+    text-align: center; /* centrer le texte à l'intérieur de la carte */
+}
+
 /*Chat box*/
 .chat_box{
     background: white;
@@ -219,4 +228,22 @@ hr{
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+/* bouton exclure*/
+
+.member-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* espace entre les membres */
+}
+
+.member-row p {
+    margin: 0;
+}
+
+#exclure {
+    color: red;
+    margin-left: 10px;
 }

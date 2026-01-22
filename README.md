@@ -5,7 +5,6 @@ Ce projet constitue un site de chat avec
 
 ## Liste de tâches
 - rendre plus joli
-- administration salon qui peut supprimer qqun et supprimer msg
-- là ou on tape le msg plus grand
-- que le | pour taper soit là direct
-- cliquer sur la box et pas le nom du salon
+    - là ou on tape le msg plus grand
+    - que le | pour taper soit là direct
+- administration salon supprimer msg

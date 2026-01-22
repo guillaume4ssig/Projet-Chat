@@ -23,7 +23,12 @@
 
             <h3>Membres :</h3>
             {% for person in salon.members.all %}
-            <p>{{ person.username }}</p>
+            <div class="member-row">
+                <p>{{ person.username }}</p>
+                {% if salon.admin == user %}
+                <a href="{% url 'exclude_member' salon.id person.id %}" id = exclure>Exclure</a>
+                {% endif %}
+            </div>
             {% endfor %}
             </div>
 

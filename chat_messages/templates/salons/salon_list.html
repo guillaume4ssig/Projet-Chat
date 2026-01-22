@@ -20,7 +20,7 @@
         <ul>
             {% for salon in salons %}
                 <li>
-                    <a href="{% url 'salon_messages' salon.id %}">{{ salon.name }}</a>
+                    <a href="{% url 'salon_messages' salon.id %}" class="salon-link">{{ salon.name }}</a>
                 </li>
             {% endfor %}
         </ul>
@@ -29,11 +29,11 @@
     </div>
     {% if messages %}
     <script>
-    {% for message in messages %}
-        alert("{{ message|escapejs }}");
-    {% endfor %}
-</script>
-{% endif %}
+        {% for message in messages %}
+            alert("{{ message|escapejs }}");
+        {% endfor %}
+    </script>
+    {% endif %}
 
 </body>
 </html>
